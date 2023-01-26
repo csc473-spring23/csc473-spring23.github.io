@@ -35,6 +35,7 @@ importers:
       mermaid: ^9.3.0
       pinst: ^3.0.0
       process: ^0.11.10
+      prop-types: ^15.8.1
       react: ^18.2.0
       react-dom: ^18.2.0
       react-router-dom: ^6.7.0
@@ -55,6 +56,7 @@ importers:
       '@mui/material': 5.11.5_rqh7qj4464ntrqrt6banhaqg4q
       dedent: 0.7.0
       mermaid: 9.3.0
+      prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
