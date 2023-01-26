@@ -6,6 +6,8 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
 import TableBody from "@mui/material/TableBody";
+import { Link } from "spectacle";
+import Typography from "@mui/material/Typography";
 
 export default function Index() {
   return (
@@ -35,6 +37,12 @@ export default function Index() {
           </TableBody>
         </Table>
       </TableContainer>
+
+      <p>
+        <Link href="https://cuny907-my.sharepoint.com/:f:/g/personal/sebastian_csar20_login_cuny_edu/EjE8br-tFYhKj3VHVhx0H7gBnWoeOuI6nLui9DbLENjPaA?e=U5Gvpz">
+          <Typography>Class OneDrive</Typography>
+        </Link>
+      </p>
     </>
   );
 }
