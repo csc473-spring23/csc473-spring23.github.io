@@ -9,7 +9,7 @@ const theme = createTheme({});
 
 mermaid.mermaidAPI.initialize({ startOnLoad: true, logLevel: 5 });
 
-const container = document.getElementById("app")!;
+const container = document.getElementById("app")!; // eslint-disable-line @typescript-eslint/no-non-null-assertion
 const root = createRoot(container);
 root.render(
   <ThemeProvider theme={theme}>

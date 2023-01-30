@@ -7,10 +7,8 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Index from "./content/index";
 import Resources from "./content/resources.mdx";
-
-// const Index = lazy(() => import("./content/index"));
-// const Resources = lazy(() => import("./content/resources.mdx"));
-// const Week1 = lazy(() => import("./content/slides/week1"));
+import Week1 from "./content/presentations/week1";
+import Slides from "./content/presentations/slides.mdx";
 
 const router = createBrowserRouter([
   {
@@ -19,13 +17,13 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Index /> },
       { path: "/resources", element: <Resources /> },
+      { path: "/slides", element: <Slides /> },
     ],
   },
-  // {
-  //   path: "/slides",
-  //   element: <Deck />,
-  //   children: [{ index: true, element: <Week1 /> }],
-  // },
+  {
+    path: "/slides",
+    children: [{ path: "week1", element: <Week1 /> }],
+  },
 ]);
 export default function App() {
   return (

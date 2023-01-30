@@ -5,11 +5,7 @@ module.exports = {
   entry: {
     index: { import: "./src/index.tsx", dependOn: "react-vendors" }, // Changed the entry file name
     "react-vendors": ["react", "react-dom", "prop-types"],
-      /**
-    week1: {
-      import: "./src/Presentation.tsx",
-      dependOn: "react-vendors",
-    },**/
+    // slides: { import: "./src/slide_index.tsx", dependOn: "react-vendors"}
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
@@ -73,12 +69,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./src/index.html", chunks: ["index", "react-vendors"] }),
-      /**
-    new HtmlWebpackPlugin({
-      template: "./src/presentation.html",
-      chunks: ["week1", "react-vendors"],
-      filename: "slides/week1.html",
-      title: "Week 1",
-    }),**/
+    // new HtmlWebpackPlugin({
+    //   template: "./src/index.html",
+    //   chunks: ["slides", "react-vendors"],
+    //   filename: "slides/index.html",
+    //   title: "Slides",
+    // }),
   ],
 };

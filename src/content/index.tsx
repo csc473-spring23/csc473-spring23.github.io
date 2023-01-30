@@ -38,11 +38,9 @@ export default function Index() {
         </Table>
       </TableContainer>
 
-      <p>
-        <Link href="https://cuny907-my.sharepoint.com/:f:/g/personal/sebastian_csar20_login_cuny_edu/EjE8br-tFYhKj3VHVhx0H7gBnWoeOuI6nLui9DbLENjPaA?e=U5Gvpz">
-          <Typography>Class OneDrive</Typography>
-        </Link>
-      </p>
+      <Link href="https://cuny907-my.sharepoint.com/:f:/g/personal/sebastian_csar20_login_cuny_edu/EjE8br-tFYhKj3VHVhx0H7gBnWoeOuI6nLui9DbLENjPaA?e=U5Gvpz">
+        <Typography>Class OneDrive</Typography>
+      </Link>
     </>
   );
 }

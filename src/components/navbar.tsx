@@ -1,42 +1,76 @@
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { SxProps, Theme, useTheme } from "@mui/material/styles";
+
+interface NavBoxProps {
+  sx?: SxProps<Theme>;
+  variant?:
+    | "button"
+    | "caption"
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "inherit"
+    | "overline"
+    | "subtitle1"
+    | "subtitle2"
+    | "body1"
+    | "body2"
+    | undefined;
+  to?: string;
+  href?: string;
+}
+
+function NavBox(props: PropsWithChildren<NavBoxProps>) {
+  const theme = useTheme();
+
+  const linkProps = props.to
+    ? { to: props.to, component: RouterLink }
+    : { href: props.href };
+
+  return (
+    <Box sx={{ padding: "10px", ...props.sx }}>
+      <Link {...linkProps}>
+        <Typography
+          variant={props.variant}
+          sx={{ color: theme.palette.primary.contrastText }}
+        >
+          {props.children}
+        </Typography>
+      </Link>
+    </Box>
+  );
+}
 
 export default function Navbar() {
+  const theme = useTheme();
+
   return (
     <AppBar position="static">
       <Toolbar>
-        <Box>
-          <Link component={RouterLink} to="/">
-            <Typography
-              variant="h6"
-              sx={{ color: "#ffffff" }}
-              noWrap
-              component="div"
-            >
-              CSC 473
-            </Typography>
-          </Link>
-        </Box>
-        <Box sx={{ padding: "10px", flexGrow: 1 }}>
-          <Link component={RouterLink} to="/resources">
-            <Typography sx={{ color: "#ffffff" }}>Resources</Typography>
-          </Link>
-        </Box>
+        <NavBox variant="h6" to="/">
+          CSC 473
+        </NavBox>
+        <NavBox to="/resources">Resources</NavBox>
+        <NavBox to="/slides" sx={{ flexGrow: 1 }}>
+          Slides
+        </NavBox>
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <Link
             href="http://github.com/csc473-spring23/csc473-spring23.github.io"
             aria-label="Go to the github repo"
+            sx={{ color: theme.palette.primary.contrastText }}
           >
-            <IconButton>
-              <GitHubIcon />
-            </IconButton>
+            <GitHubIcon />
           </Link>
         </Box>
       </Toolbar>
