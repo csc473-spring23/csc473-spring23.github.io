@@ -52,6 +52,7 @@ module.exports = {
       },
       {
         test: /\.mdx?$/,
+        exclude: /presentations\/w.+\.mdx$/,
         // NOTE: webpack runs right to left to mdx-js is first
         use: [
           {
@@ -65,6 +66,11 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /presentations\/.+\.mdx$/,
+        exclude: /presentations\/slides.mdx$/,
+        use: ["babel-loader", "spectacle-mdx-loader"],
+      },
     ],
   },
   resolve: {
@@ -74,6 +80,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       chunks: ["index", "react-vendors"],
+      // I don't love this, but it should fix our 404 problems
+      // scriptLoading: "blocking"
     }),
      new PrerendererWebpackPlugin({
       // Required - Routes to render.
