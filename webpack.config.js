@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -13,15 +14,15 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: 'all'
-    }
+      chunks: "all",
+    },
   },
   devServer: {
     static: {
       directory: path.resolve(__dirname, "./dist"),
     },
     // needed so that /slides works locally
-    historyApiFallback: true,
+    historyApiFallback: { rewrites: [{ from: /.+/, to: "/404.html" }] },
     devMiddleware: {
       writeToDisk: true,
     },
@@ -48,6 +49,10 @@ module.exports = {
         type: "asset/resource",
       },
       {
+        test: /404.html$/,
+        type: "asset/resource",
+      },
+      {
         test: /\.mdx?$/,
         // NOTE: webpack runs right to left to mdx-js is first
         use: [
@@ -68,7 +73,17 @@ module.exports = {
     extensions: [".tsx", ".ts", ".jsx", ".js"], // add .tsx, .ts
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: "./src/index.html", chunks: ["index", "react-vendors"] }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      chunks: ["index", "react-vendors"],
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "./src/404.html",
+        },
+      ],
+    }),
     // new HtmlWebpackPlugin({
     //   template: "./src/index.html",
     //   chunks: ["slides", "react-vendors"],
