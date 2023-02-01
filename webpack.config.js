@@ -1,16 +1,15 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
+const PrerendererWebpackPlugin = require('@prerenderer/webpack-plugin')
 
 module.exports = {
   entry: {
-    index: { import: "./src/index.tsx", dependOn: "react-vendors" }, // Changed the entry file name
-    "react-vendors": ["react", "react-dom", "prop-types"],
-    // slides: { import: "./src/slide_index.tsx", dependOn: "react-vendors"}
+    index: { import: "./src/index.tsx" },
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "[name].bundle.js",
+    publicPath: "/"
   },
   optimization: {
     splitChunks: {
@@ -21,8 +20,7 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, "./dist"),
     },
-    // needed so that /slides works locally
-    historyApiFallback: { rewrites: [{ from: /.+/, to: "/404.html" }] },
+    historyApiFallback: true,
     devMiddleware: {
       writeToDisk: true,
     },
@@ -77,18 +75,10 @@ module.exports = {
       template: "./src/index.html",
       chunks: ["index", "react-vendors"],
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: "./src/404.html",
-        },
-      ],
-    }),
-    // new HtmlWebpackPlugin({
-    //   template: "./src/index.html",
-    //   chunks: ["slides", "react-vendors"],
-    //   filename: "slides/index.html",
-    //   title: "Slides",
-    // }),
+     new PrerendererWebpackPlugin({
+      // Required - Routes to render.
+      routes: [ '/', '/slides', '/slides/week1' ],
+      //renderer: '@prerenderer/renderer-jsdom', // Uncomment if you want to use jsdom
+    })
   ],
 };
