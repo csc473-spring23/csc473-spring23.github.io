@@ -12,8 +12,10 @@ import {
   TableBody,
   TableHeader,
   TableRow,
+  Text,
   UnorderedList,
 } from "spectacle";
+import { css } from "@emotion/react";
 
 export default function Week2() {
   return (
@@ -167,6 +169,123 @@ In other words, CSS is a means of specifying the *appearance* of our HTML.
         </UnorderedList>
       </SlideLayout.Center>
       <SlideLayout.Section>Exercise</SlideLayout.Section>
+      <Slide>
+        <Heading>Boxes and More Boxes</Heading>
+        <UnorderedList>
+          <li>Everything in CSS has a box around it</li>
+          <li>
+            Boxes (usually) have one of two <em>outer display types</em>:
+          </li>
+          <ul>
+            <li>block - starts a new line</li>
+            <li>inline - continues the current line</li>
+            <li>there's also inline-block</li>
+          </ul>
+        </UnorderedList>
+      </Slide>
+      <Slide>
+        <Text
+          css={css`
+            margin-bottom: 10px;
+          `}
+        >
+          <div
+            css={css`
+              border: 10px solid;
+              border-color: red;
+            `}
+          >
+            I'm in a{" "}
+            <span
+              css={css`
+                border: 10px dotted;
+                border-color: blue;
+              `}
+            >
+              box
+            </span>
+          </div>
+          <div
+            css={css`
+              border: 10px solid;
+              border-color: rebeccapurple;
+            `}
+          >
+            Another box
+          </div>
+        </Text>
+        <CodePane
+          language="html"
+          css={css`
+            margin-bottom: 10px;
+          `}
+        >
+          {`
+            <div id="box">
+              I'm in a <span>box</span>
+            </div>
+            <div id="box2">Another box</div>`}
+        </CodePane>
+      </Slide>
+      <Slide>
+        <CodePane
+          language="html"
+          css={css`
+            margin-bottom: 10px;
+          `}
+        >
+          {`
+            <div id="box">
+              I'm in a <span>box</span>
+            </div>
+            <div id="box2">Another box</div>`}
+        </CodePane>
+        <CodePane language="css">{`
+          #box {
+            border: 10px solid;
+            border-color: red
+          }
+
+          #box2 {
+            border: 10px solid rebeccapurple;
+          }
+
+          span {
+            border: 10px dotted;
+            border-color: blue;
+          }
+        `}</CodePane>
+      </Slide>
+      <Slide>
+        <Heading>Inner Display Type</Heading>
+        <UnorderedList>
+          <li>
+            Boxes also have <em>inner display type</em>
+          </li>
+          <li>
+            Inner display type dictates how elements{" "}
+            <em>inside the box are laid out</em>
+          </li>
+        </UnorderedList>
+      </Slide>
+      <Slide>
+        <Heading>display</Heading>
+        <UnorderedList>
+          <li>
+            <CodeSpan>flow</CodeSpan>
+          </li>
+          <li>
+            <CodeSpan>flex</CodeSpan>
+          </li>
+          <li>
+            <CodeSpan>grid</CodeSpan>
+          </li>
+          <li>
+            <CodeSpan>none</CodeSpan>
+          </li>
+        </UnorderedList>
+      </Slide>
+      <SlideLayout.Section>Experiment Time</SlideLayout.Section>
     </>
   );
 }
