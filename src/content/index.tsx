@@ -28,11 +28,15 @@ export default function Index() {
             <TableRow>
               <TableCell>Class</TableCell>
               <TableCell>Thursdays 6.30-9pm</TableCell>
-              <TableCell>Shephard 308</TableCell>
+              <TableCell>
+                Usually Zoom
+                <br />
+                or Shephard 308
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Office Hours</TableCell>
-              <TableCell>TBD</TableCell>
+              <TableCell>Modays 7-8pm (or by appointment)</TableCell>
               <TableCell>Zoom</TableCell>
             </TableRow>
           </TableBody>
