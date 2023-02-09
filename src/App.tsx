@@ -11,7 +11,9 @@ import Week1 from "./content/presentations/week1";
 import Slides from "./content/presentations/slides.mdx";
 import theme from "./themes/slide-default";
 import Deck from "./routes/deck";
+import MdxDeck from "./routes/mdx_deck";
 import Week2 from "./content/presentations/week2";
+import week3, {  notes } from "./content/presentations/week3.mdx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,16 @@ const router = createBrowserRouter([
       { path: "week2", element: <Week2 /> },
     ],
   },
+  {
+    path: "/slides",
+    children: [
+      {
+        path: "week3",
+        element: <MdxDeck slides={week3} notes={notes} theme={theme} />,
+      },
+    ],
+  },
+
   // {
   //   path: "/slides",
   //   children: [
