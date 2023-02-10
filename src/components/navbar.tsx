@@ -61,6 +61,7 @@ export default function Navbar() {
           CSC 473
         </NavBox>
         <NavBox to="/resources">Resources</NavBox>
+        <NavBox to="/reading">Reading</NavBox>
         <NavBox to="/slides" sx={{ flexGrow: 1 }}>
           Slides
         </NavBox>
