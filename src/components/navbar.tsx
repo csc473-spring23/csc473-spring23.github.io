@@ -62,8 +62,9 @@ export default function Navbar() {
         </NavBox>
         <NavBox to="/resources">Resources</NavBox>
         <NavBox to="/reading">Reading</NavBox>
-        <NavBox to="/slides" sx={{ flexGrow: 1 }}>
-          Slides
+        <NavBox to="/slides">Slides</NavBox>
+        <NavBox to="/final-project" sx={{ flexGrow: 1 }}>
+          Final Project
         </NavBox>
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <Link

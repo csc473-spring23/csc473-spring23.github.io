@@ -12,8 +12,10 @@
     "@prerenderer/renderer-puppeteer": "^1.0.3",
     "@prerenderer/webpack-plugin": "^5.0.5",
     "@types/dedent": "^0.7.0",
+    "@types/node": "^18.15.10",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "^5.48.2",
     "babel-loader": "^9.1.2",
@@ -36,6 +38,7 @@
     "remark-gfm": "^3.0.1",
     "spectacle-mdx-loader": "^0.1.1",
     "style-loader": "^3.3.1",
+    "ts-node": "^10.9.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"

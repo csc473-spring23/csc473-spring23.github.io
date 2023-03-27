@@ -15,6 +15,7 @@ import Deck from "./routes/deck";
 import MdxDeck from "./routes/mdx_deck";
 import Week2 from "./content/presentations/week2";
 import week3, { notes } from "./content/presentations/week3.mdx";
+import FinalProject from "./content/final_project.mdx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "/resources", element: <Resources /> },
       { path: "/slides", element: <Slides /> },
       { path: "/reading", element: <Readings /> },
+      { path: "/final-project", element: <FinalProject /> },
     ],
   },
   {
